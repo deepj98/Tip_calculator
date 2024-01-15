@@ -1,15 +1,15 @@
 import React from "react";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import dashboard from "./components/dashboard";
+import Dashboard from "./components/dashboard";
 
-function routers(){
+function Routers(){
 return(
     <Router>
         <Routes>
-            <Route path="/" exact Component={dashboard}/>
+            <Route path="/" exact Component={Dashboard}/>
         </Routes>
     </Router>
 );
 
 }
-export default routers;
+export default Routers;
