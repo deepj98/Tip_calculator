@@ -1,18 +1,34 @@
 import React from 'react';
 
-function dashboard() {
-    return(
-        <div style={styles.container}>
+const  Dashboard = () => (
+    
+        <div style={styles.container}>   
             <div style={styles.dashboardCard}>
-
+        
             </div>
         </div>
     );
-};
+
 const styles = {
-    container:"",
-    dashboardCard: "",
+    container:{
+        display: 'flex',
+        backgroundColor: '#f4f4f4',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+    },
+    dashboardCard: {
+        padding: '20px',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        backgroundColor: '#ffffff',
+        borderRadius: '8px',
+    },
+    cardtitle: {
+        fontSize: '24px',
+
+    },
+
 }
 
 
-export default dashboard;
+export default Dashboard;
