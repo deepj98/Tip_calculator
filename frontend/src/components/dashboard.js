@@ -8,20 +8,42 @@ import splitwiser_logo from '/Users/deepshah/Deep_documents/TipApp/frontend/src/
 const Dashboard = () => (
     <div style={styles.container}>
 
-        <div style={styles.logoContainerContainer}>
+        <div>
             <img src={splitwiser_logo} alt='spliwiser logo' style={styles.Logo}/>
         </div>
 
-        <div > 
-
+        <div> 
         <Card style={styles.Card}>
 
-            <CardHeader
-                title="Splitwiser"
-                subheader="split bills and tips effeciently" />
-
             <CardContent>
-                <Typography style={styles.cardcontent} />
+                <table style={styles.contentTable}>
+
+                <div style={styles.leftColumn}>
+                    <tr>
+                        <td>
+                                <Typography>Bill</Typography>
+                                <input type='text'></input>
+                        </td>
+                        <td style={styles.rightColumn}>
+                            <Typography>Total</Typography>
+
+
+                        </td>
+                    </tr>
+                    </div>
+
+                    <div style={styles.rightColumn}>
+                    <tr>
+                        <td>
+                            <Typography>Total</Typography>
+
+
+                        </td>
+                    </tr>
+                    </div>
+
+                </table>
+
             </CardContent>
 
 
@@ -44,9 +66,7 @@ const styles = {
         
         
     },
-    logoContainer:{
-        margin: '40px auto',
-    },
+   
     Logo:{
         display: 'inline-block',
         margin: '40px auto', 
@@ -55,18 +75,29 @@ const styles = {
 
 
     Card: {
-        margin: '50px 50px 50px 50px',
+        width: '800px',
+        height:'350px',
+        margin: '50px auto',
         padding: '20px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
         backgroundColor: '#ffffff',
-        borderRadius: '8px',
+        borderRadius: '20px',
     },
-    
-    cardtitle: {
-        fontSize: '24px',
-    },
-    cardcontent: {
 
+    cardcontent: {
+    },
+
+    contentTable: {
+        width: '100%',
+        marginTop: '20px',
+    },
+
+    leftColumn:{
+        height:'100%',
+        textAlign: 'left',
+    },
+    rightColumn:{
+        textAlign: 'right',
     }
 
 }
