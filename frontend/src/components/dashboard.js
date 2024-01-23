@@ -1,9 +1,10 @@
 import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { CardHeader } from '@mui/material';
+// import Typography from '@mui/material/Typography';
+// import { CardHeader, FormGroup } from '@mui/material';
 import splitwiser_logo from '/Users/deepshah/Deep_documents/TipApp/frontend/src/assets/splitwiser_logo.svg'
+// import { Grid } from '@mui/material';
 
 const Dashboard = () => (
     <div style={styles.container}>
@@ -16,33 +17,26 @@ const Dashboard = () => (
         <Card style={styles.Card}>
 
             <CardContent>
-                <table style={styles.contentTable}>
+                <form style={styles.form} >
 
-                <div style={styles.leftColumn}>
-                    <tr>
-                        <td>
-                                <Typography>Bill</Typography>
-                                <input type='text'></input>
-                        </td>
-                        <td style={styles.rightColumn}>
-                            <Typography>Total</Typography>
+                    <div style={styles.leftContent}>
+                        <label style={{display: 'block'}} htmlFor='billValue'>Bill</label>
+                        <input style={styles.leftInput} type='number' id='billValue' />
 
+                        <div style={styles.leftButtonGrid}>
+                            <button>5%</button>
+                            <button>10%</button>
+                            <button>15%</button>
 
-                        </td>
-                    </tr>
+                        </div>
                     </div>
 
-                    <div style={styles.rightColumn}>
-                    <tr>
-                        <td>
-                            <Typography>Total</Typography>
-
-
-                        </td>
-                    </tr>
+                    <div style={styles.rightContent}>
+                        <label style={{display: 'block'}} htmlFor='calcTipPP'>Tip per person</label>
+                        <input type='text' id='calcTipPP' readOnly />
                     </div>
 
-                </table>
+                </form>
 
             </CardContent>
 
@@ -57,20 +51,16 @@ const Dashboard = () => (
 
 const styles = {
     container: {
-        // display: 'flex',
         backgroundColor: '#C5E4E7',
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
         height: '100vh',
-        
-        
     },
    
     Logo:{
         display: 'inline-block',
         margin: '40px auto', 
-        
     },
 
 
@@ -84,23 +74,45 @@ const styles = {
         borderRadius: '20px',
     },
 
-    cardcontent: {
-    },
+   form: {
+    display: 'flex',
+    flexDirection:'columns',
+    alignItems: 'center',
 
-    contentTable: {
-        width: '100%',
-        marginTop: '20px',
-    },
+   },
 
-    leftColumn:{
-        height:'100%',
-        textAlign: 'left',
-    },
-    rightColumn:{
-        textAlign: 'right',
-    }
+    leftContent: {
+    padding:'20px',
+    width: '100%',
+    textAlign: 'left',
+   },
+   leftInput:{
+    textAlign: 'right', 
+    width:'90%', 
+    borderRadius:'3px', 
+    fontSize:'24px'
+   },
+
+   leftButtonGrid:{
+    display: 'inline-grid',
+    flexDirection: 'rows',
+    
+
+
+   },
+
+   rightContent: {
+    padding:'20px',
+    width: '100%',
+    textAlign: 'left',
+    backgroundColor: '#C5E4E7'
+   },
+   rightInput:{
+
+
+   },
+
 
 }
-
 
 export default Dashboard;
