@@ -1,10 +1,9 @@
 import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-// import Typography from '@mui/material/Typography';
-// import { CardHeader, FormGroup } from '@mui/material';
 import splitwiser_logo from '/Users/deepshah/Deep_documents/TipApp/frontend/src/assets/splitwiser_logo.svg'
-// import { Grid } from '@mui/material';
+
+
 
 const Dashboard = () => (
     <div style={styles.container}>
@@ -21,14 +20,25 @@ const Dashboard = () => (
 
                     <div style={styles.leftContent}>
                         <label style={{display: 'block'}} htmlFor='billValue'>Bill</label>
-                        <input style={styles.leftInput} type='number' id='billValue' />
 
+                        <div style={styles.leftInputIcon}>
+                        
+                        <input style={styles.leftInput} type='number' id='billValue' />
+                        </div>
+
+                        <label style={{display:'block', marginTop: '20px'}}> Select Tip %</label>
                         <div style={styles.leftButtonGrid}>
                             <button>5%</button>
                             <button>10%</button>
                             <button>15%</button>
-
+                            <button>20%</button>
+                            <button>25%</button>
+                            <button>Custom</button>
                         </div>
+
+                        <label style={{display: 'block', marginTop:'20px'}} htmlFor='noOfpeople'>No of People</label>
+                        <input style={styles.leftInput} type='number' id='noOfpeople' />
+
                     </div>
 
                     <div style={styles.rightContent}>
@@ -80,25 +90,38 @@ const styles = {
     alignItems: 'center',
 
    },
-
     leftContent: {
     padding:'20px',
     width: '100%',
     textAlign: 'left',
    },
+
    leftInput:{
+    marginTop:'10px',
     textAlign: 'right', 
-    width:'90%', 
+    width:'100%', 
     borderRadius:'3px', 
-    fontSize:'24px'
+    fontSize:'24px',
+    padding:'10px',
+   },
+   leftInputIcon:{
+    position: 'relative',
+   },
+
+   leftIcon:{
+    position: 'absolute',
+    left: '10px',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    color:'#00000'
+
    },
 
    leftButtonGrid:{
-    display: 'inline-grid',
-    flexDirection: 'rows',
-    
-
-
+    marginTop: '20px',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3,1fr)',
+    gap:'10px',
    },
 
    rightContent: {
@@ -107,6 +130,7 @@ const styles = {
     textAlign: 'left',
     backgroundColor: '#C5E4E7'
    },
+
    rightInput:{
 
 
