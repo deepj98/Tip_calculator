@@ -2,6 +2,10 @@ import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import splitwiser_logo from '/Users/deepshah/Deep_documents/TipApp/frontend/src/assets/splitwiser_logo.svg'
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import PersonIcon from '@mui/icons-material/Person';
+
+
 
 
 
@@ -21,8 +25,8 @@ const Dashboard = () => (
                     <div style={styles.leftContent}>
                         <label style={{display: 'block'}} htmlFor='billValue'>Bill</label>
 
-                        <div style={styles.leftInputIcon}>
-                        
+                        <div style={styles.leftInputIconContainer}>
+                        <MonetizationOnIcon style={styles.leftIcon}/>
                         <input style={styles.leftInput} type='number' id='billValue' />
                         </div>
 
@@ -37,7 +41,10 @@ const Dashboard = () => (
                         </div>
 
                         <label style={{display: 'block', marginTop:'20px'}} htmlFor='noOfpeople'>No of People</label>
+                        <div style={styles.leftInputIconContainer}>
+                            <PersonIcon style={styles.leftIcon}/>
                         <input style={styles.leftInput} type='number' id='noOfpeople' />
+                        </div>
 
                     </div>
 
@@ -75,8 +82,8 @@ const styles = {
 
 
     Card: {
-        width: '800px',
-        height:'350px',
+        maxWidth: '800px',
+        width:'90%',
         margin: '50px auto',
         padding: '20px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
@@ -101,10 +108,11 @@ const styles = {
     textAlign: 'right', 
     width:'100%', 
     borderRadius:'3px', 
-    fontSize:'24px',
+    fontSize:'2vh',
     padding:'10px',
    },
-   leftInputIcon:{
+
+   leftInputIconContainer:{
     position: 'relative',
    },
 
@@ -123,6 +131,8 @@ const styles = {
     gridTemplateColumns: 'repeat(3,1fr)',
     gap:'10px',
    },
+
+   
 
    rightContent: {
     padding:'20px',
