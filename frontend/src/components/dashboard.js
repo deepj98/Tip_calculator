@@ -5,10 +5,6 @@ import splitwiser_logo from '/Users/deepshah/Deep_documents/TipApp/frontend/src/
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PersonIcon from '@mui/icons-material/Person';
 
-
-
-
-
 const Dashboard = () => (
     <div style={styles.container}>
 
@@ -45,19 +41,24 @@ const Dashboard = () => (
                             <PersonIcon style={styles.leftIcon}/>
                         <input style={styles.leftInput} type='number' id='noOfpeople' />
                         </div>
-
                     </div>
 
                     <div style={styles.rightContent}>
-                        <label style={{display: 'block'}} htmlFor='calcTipPP'>Tip per person</label>
-                        <input type='text' id='calcTipPP' readOnly />
+                        
+                                <label style={{display: 'block', color:'white'}} htmlFor='calcTipPP'>Tip / Person </label>
+                                <input style={styles.rightInput} type='text' id='calcTipPP' readOnly />
+
+                                <label style={{display:'block', color:'white', marginTop:'30px'}} htmlFor='totalTip'>Total Tip</label>
+                                <input style={styles.rightInput} type='text' id='totalTip' readOnly />
+
+                                <button>RESET</button>
+                            
                     </div>
+                    
 
                 </form>
 
             </CardContent>
-
-
         </Card>
         </div>
         
@@ -89,24 +90,30 @@ const styles = {
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
         backgroundColor: '#ffffff',
         borderRadius: '20px',
+        display:'flex',
+        flexDirection:'column',
     },
 
    form: {
     display: 'flex',
     flexDirection:'columns',
-    alignItems: 'center',
+    alignItems: 'stretch',
+    height:'100%',
 
    },
     leftContent: {
+    flex:'1',
     padding:'20px',
-    width: '100%',
+    maxWidth:'360px',
+    width: '90%',
     textAlign: 'left',
+    borderRadius:'20px',
    },
 
    leftInput:{
     marginTop:'10px',
     textAlign: 'right', 
-    width:'100%', 
+    width:'90%', 
     borderRadius:'3px', 
     fontSize:'2vh',
     padding:'10px',
@@ -133,19 +140,32 @@ const styles = {
    },
 
    
-
    rightContent: {
+    flex:'1',
     padding:'20px',
-    width: '100%',
+    maxWidth:'360px',
+    width: '90%',
     textAlign: 'left',
-    backgroundColor: '#C5E4E7'
+    backgroundColor: '#71BEC6',
+    borderRadius:'20px',
    },
 
    rightInput:{
-
-
+    textAlign:'right',
+    backgroundColor:'#71BEC6',
+    width:'90%',
+    fontSize: '2vh',
+    borderRadius:'3px',
+    borderColor:'#000000',
+    marginTop:'10px',
+    padding:'10px',
    },
 
+   rightButton:{
+    marginTop:'20px',
+    alignItems:'center',
+    
+   },
 
 }
 
