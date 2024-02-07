@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import splitwiser_logo from '/Users/deepshah/Deep_documents/TipApp/frontend/src/assets/splitwiser_logo.svg'
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PersonIcon from '@mui/icons-material/Person';
 
-const Dashboard = () => (
-    <div style={styles.container}>
+const Dashboard = () => {
+    const[billValue, setBillValue] = useState('');
+    const[noOfpeople, setNoOfPeople] = useState('');
+    const[tipPerPerson, setTipPerPerson] = useState('');
+    const[totalTip, setTotalTip] = useState('');
+
+    const handleTipPerPerson = () => {
+
+    };
+
+    const handleTotalTip = () =>{
+
+    };
+
+
+
+    
+    return(
+            <div style={styles.container}>
 
         <div>
             <img src={splitwiser_logo} alt='spliwiser logo' style={styles.Logo}/>
@@ -51,21 +68,17 @@ const Dashboard = () => (
                                 <label style={{display:'block', color:'white', marginTop:'30px'}} htmlFor='totalTip'>Total Tip</label>
                                 <input style={styles.rightInput} type='text' id='totalTip' readOnly />
 
-                                <button>RESET</button>
+                                <button style={styles.rightButton}>RESET</button>
                             
-                    </div>
-                    
-
-                </form>
-
-            </CardContent>
-        </Card>
-        </div>
-        
+                     </div>
+                    </form>
+                </CardContent>
+            </Card>
+        </div>     
     </div>
 
-
-);
+    );
+};
 
 const styles = {
     container: {
@@ -162,9 +175,12 @@ const styles = {
    },
 
    rightButton:{
-    marginTop:'20px',
+    marginTop:'60px',
     alignItems:'center',
-    
+    width: '100%',
+    height:'5vh',
+    borderRadius:'3px',
+    backgroundColor: '#71BEC6'
    },
 
 }
