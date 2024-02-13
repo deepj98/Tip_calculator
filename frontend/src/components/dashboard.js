@@ -12,6 +12,8 @@ const Dashboard = () => {
     const[totalTip, setTotalTip] = useState('');
 
     const handleTipPerPerson = () => {
+        totalTip = setBillValue / setNoOfPeople;
+        
 
     };
 
@@ -40,7 +42,10 @@ const Dashboard = () => {
 
                         <div style={styles.leftInputIconContainer}>
                         <MonetizationOnIcon style={styles.leftIcon}/>
-                        <input style={styles.leftInput} type='number' id='billValue' />
+
+                        <input style={styles.leftInput} type='number' id='billValue' 
+                        value= {billValue} onChange={{handleTipPerPerson}} />
+
                         </div>
 
                         <label style={{display:'block', marginTop: '20px'}}> Select Tip %</label>
