@@ -8,22 +8,30 @@ import PersonIcon from '@mui/icons-material/Person';
 const Dashboard = () => {
     const[billValue, setBillValue] = useState('');
     const[noOfpeople, setNoOfPeople] = useState('');
+    const[tipPercent, setTipPercent] = useState('');
     const[tipPerPerson, setTipPerPerson] = useState('');
     const[totalTip, setTotalTip] = useState('');
 
-    const handleTipPerPerson = () => {
-        totalTip = setBillValue / setNoOfPeople;
-        
+   const handleBillValue = (e) =>{
+    setBillValue(e.target.value)
+    calculateTotalTip(e.target.value, noOfpeople, tipPercent)
+   };
 
-    };
+   const handleNoOfPeople = (e) =>{
+    setNoOfPeople(e.target.value)
+    calculateTotalTip(billValue, e.target.value, tipPercent)
+   };
 
-    const handleTotalTip = () =>{
+   const handleTipPercentChange = () =>{
 
-    };
+   };
 
+   const calculateTotalTip = (billValue, noOfpeople, tipPercent) =>{
+    const tipAmount = parseFloat(billValue) * (parseFloat(tipPercent) / 100);
+    const totalTip = tipAmount / parseFloat(noOfpeople);
+    setTotalTip(totalTip);
+   }
 
-
-    
     return(
             <div style={styles.container}>
 
@@ -44,7 +52,7 @@ const Dashboard = () => {
                         <MonetizationOnIcon style={styles.leftIcon}/>
 
                         <input style={styles.leftInput} type='number' id='billValue' 
-                        value= {billValue} onChange={{handleTipPerPerson}} />
+                        value= {billValue} onChange={handleBillValue} />
 
                         </div>
 
@@ -59,10 +67,13 @@ const Dashboard = () => {
                         </div>
 
                         <label style={{display: 'block', marginTop:'20px'}} htmlFor='noOfpeople'>No of People</label>
+
                         <div style={styles.leftInputIconContainer}>
                             <PersonIcon style={styles.leftIcon}/>
-                        <input style={styles.leftInput} type='number' id='noOfpeople' />
+                                <input style={styles.leftInput} type='number' id='noOfpeople' 
+                                value={noOfpeople} onChange={handleNoOfPeople} />
                         </div>
+
                     </div>
 
                     <div style={styles.rightContent}>
@@ -71,7 +82,7 @@ const Dashboard = () => {
                                 <input style={styles.rightInput} type='text' id='calcTipPP' readOnly />
 
                                 <label style={{display:'block', color:'white', marginTop:'30px'}} htmlFor='totalTip'>Total Tip</label>
-                                <input style={styles.rightInput} type='text' id='totalTip' readOnly />
+                                <input style={styles.rightInput} type='text' id='totalTip' value={totalTip} readOnly />
 
                                 <button style={styles.rightButton}>RESET</button>
                             
