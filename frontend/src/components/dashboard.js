@@ -39,7 +39,11 @@ const Dashboard = () => {
    };
 
    const resetForm = (e) => {
-    document.getElementById("FormID").reset();
+    setBillValue('');
+    setNoOfPeople('');
+    setTipPerPerson('');
+    setTipPercent('');
+    setTotalTip('');
    }
 
     return(
@@ -73,7 +77,7 @@ const Dashboard = () => {
                             <button value= '0.15' onClick={handleTipPercentChange}>15%</button>
                             <button value= '0.20' onClick={handleTipPercentChange}>20%</button>
                             <button value= '0.25' onClick={handleTipPercentChange}>25%</button>
-                            <button>Custom</button>
+                            <button value= '0.30' onClick={handleTipPercentChange}>30%</button>
                         </div>
 
                         <label style={{display: 'block', marginTop:'20px'}} htmlFor='noOfpeople'>No of People</label>
