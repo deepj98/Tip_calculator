@@ -22,14 +22,24 @@ const Dashboard = () => {
     calculateTotalTip(billValue, e.target.value, tipPercent)
    };
 
-   const handleTipPercentChange = () =>{
-
+   const handleTipPercentChange = (e) =>{
+    setTipPercent(e.target.value)
+    calculateTotalTip(billValue,noOfpeople,e.target.value)
    };
 
    const calculateTotalTip = (billValue, noOfpeople, tipPercent) =>{
-    const tipAmount = parseFloat(billValue) * (parseFloat(tipPercent) / 100);
+    const tipAmount = parseFloat(billValue) * (parseFloat(tipPercent));
     const totalTip = tipAmount / parseFloat(noOfpeople);
-    setTotalTip(totalTip);
+    setTotalTip(tipAmount);
+    setTipPerPerson(totalTip);
+   };
+
+   const handleSubmit = (e) => {
+    e.preventDefault();
+   };
+
+   const resetForm = (e) => {
+    document.getElementById("FormID").reset();
    }
 
     return(
@@ -43,7 +53,7 @@ const Dashboard = () => {
         <Card style={styles.Card}>
 
             <CardContent>
-                <form style={styles.form} >
+                <form id='FormID' style={styles.form} onSubmit={handleSubmit} >
 
                     <div style={styles.leftContent}>
                         <label style={{display: 'block'}} htmlFor='billValue'>Bill</label>
@@ -58,11 +68,11 @@ const Dashboard = () => {
 
                         <label style={{display:'block', marginTop: '20px'}}> Select Tip %</label>
                         <div style={styles.leftButtonGrid}>
-                            <button>5%</button>
-                            <button>10%</button>
-                            <button>15%</button>
-                            <button>20%</button>
-                            <button>25%</button>
+                            <button value= '0.05' onClick={handleTipPercentChange}>5%</button>  
+                            <button value= '0.10' onClick={handleTipPercentChange}>10%</button>
+                            <button value= '0.15' onClick={handleTipPercentChange}>15%</button>
+                            <button value= '0.20' onClick={handleTipPercentChange}>20%</button>
+                            <button value= '0.25' onClick={handleTipPercentChange}>25%</button>
                             <button>Custom</button>
                         </div>
 
@@ -79,14 +89,13 @@ const Dashboard = () => {
                     <div style={styles.rightContent}>
                         
                                 <label style={{display: 'block', color:'white'}} htmlFor='calcTipPP'>Tip / Person </label>
-                                <input style={styles.rightInput} type='text' id='calcTipPP' readOnly />
+                                <input style={styles.rightInput} type='text' id='calcTipPP' value={tipPerPerson} readOnly />
 
                                 <label style={{display:'block', color:'white', marginTop:'30px'}} htmlFor='totalTip'>Total Tip</label>
                                 <input style={styles.rightInput} type='text' id='totalTip' value={totalTip} readOnly />
 
-                                <button style={styles.rightButton}>RESET</button>
-                            
-                     </div>
+                                <input type='button' style={styles.rightButton} onClick={resetForm} value='Reset'/>                            
+                        </div>
                     </form>
                 </CardContent>
             </Card>
